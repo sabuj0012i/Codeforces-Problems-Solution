@@ -3,60 +3,32 @@ using namespace std;
 typedef long long int ll;
 
 void solve(){
-    string time;cin>>time;
-    string hh,mm;
-    hh+=time[0];
-    hh+=time[1];
+    string str;cin>>str;
+    string str1,str2;
+    str1+=str[0];
+    str1+=str[1];
 
-    mm+=time[3];
-    mm+=time[4];
+    str2+=str[3];
+    str2+=str[4];
 
-    int h = stoi(hh);
-    int m = stoi(mm);
+    int hh = stoi(str1);
+    int mm = stoi(str2);
+    bool flag=0;
+    if(hh>11) flag = 1;
 
-    bool flag = 0;
-    if(h>=12) flag=1;
-    if(h<=12){
-        if(h==0)
-        {
-            h = 12;
-            flag=1;
-        }
-        if(h<10){
+    if(hh>12) hh-=12;
+    if(hh==0) {hh=12;flag=0;}
+    
+    if(hh<10) cout<<"0"<<hh<<":";
+    else cout<<hh<<":";
 
-            cout << "0" << h << ":";
-            if (m < 10)
-                cout << "0" << m;
-            else
-                cout << m ;
-        }
-        else{
-            cout << h << ":";
-            if (m < 10)
-                cout << "0" << m ;
-            else
-                cout << m ;
-        } 
-    }else{
-        h=h-12;
-        if (h < 10){
-            cout << "0" << h << ":";
-            if (m < 10)
-                cout << "0" << m;
-            else
-                cout << m ;
-        }
-          
-        else{
-            cout << h << ":";
-            if (m < 10)
-                cout << "0" << m ;
-            else
-                cout << m ;
-        }  
-    }
-    if(flag==0) cout<<" AM"<<endl;
-    else cout<<" PM"<<endl;
+    if(mm<10) cout<<"0"<<mm;
+    else cout<<mm;
+
+    if(flag) cout<<" PM"<<endl;
+    else cout<<" AM"<<endl;
+
+
     
 }
 int main(){
